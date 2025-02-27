@@ -42,7 +42,7 @@ class Node{
             node = node.next;
         }
     }
-    
+    //jggkhkjkjk
     public void search(int data){
         Node node=head;
 
