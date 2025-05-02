@@ -68,13 +68,22 @@ class Heap {
     public void delete(Heap heap) {
         if (heap.size == 0) {
             System.out.println("Heap is empty");
-        }
-        else {
+        } else {
             heap.arr[0] = heap.arr[heap.size - 1];
             heap.size--;
             Heapify(heap.arr, heap.size, 0);
 
         }
-        
+
+    }
+    
+
+    public void Heapsort(Heap heap) {
+        for(int i=heap.size - 1; i >= 0; i--) {
+            int temp = heap.arr[0];
+            heap.arr[0] = heap.arr[i];
+            heap.arr[i] = temp;
+            Heapify(heap.arr, i, 0);
+        }
     }
 }
