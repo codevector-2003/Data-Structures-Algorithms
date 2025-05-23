@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class Runner_MST_Kruskal {
+public class Runner_MST {
     public static void main(String[] args) {
 
     }

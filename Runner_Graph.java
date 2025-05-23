@@ -224,67 +224,6 @@ class Weighted_Graph extends Graph {
         }
     }
 
-    public void prims() {
-        int V = adj.length;
-        int[] parent = new int[V]; // Array to store MST
-        int[] key = new int[V]; // Key values to pick minimum weight edge
-        boolean[] mstSet = new boolean[V]; // Vertices included in MST
-
-        // Initialize all keys as infinite
-        for (int i = 0; i < V; i++) {
-            key[i] = Integer.MAX_VALUE;
-            mstSet[i] = false;
-        }
-
-        // Start with first vertex
-        key[0] = 0;
-        parent[0] = -1; // First node is root of MST
-
-        // Construct MST with V vertices
-        for (int count = 0; count < V - 1; count++) {
-            // Pick minimum key vertex not yet included in MST
-            int u = minKey(key, mstSet);
-            mstSet[u] = true;
-
-            // Update key and parent of adjacent vertices
-            for (int v = 0; v < V; v++) {
-                // Update only if:
-                // - There is an edge from u to v
-                // - v is not in MST
-                // - Edge weight is smaller than current key
-                if (adj[u][v] != 0 && !mstSet[v] && adj[u][v] < key[v]) {
-                    parent[v] = u;
-                    key[v] = adj[u][v];
-                }
-            }
-        }
-
-        // Print the MST
-        printMST(parent);
-    }
-
-    private int minKey(int[] key, boolean[] mstSet) {
-        int min = Integer.MAX_VALUE;
-        int minIndex = -1;
-
-        for (int v = 0; v < adj.length; v++) {
-            if (!mstSet[v] && key[v] < min) {
-                min = key[v];
-                minIndex = v;
-            }
-        }
-        return minIndex;
-    }
-
-    private void printMST(int[] parent) {
-        System.out.println("Edge \tWeight");
-        int totalWeight = 0;
-        for (int i = 1; i < adj.length; i++) {
-            System.out.println(parent[i] + " - " + i + "\t" + adj[i][parent[i]]);
-            totalWeight += adj[i][parent[i]];
-        }
-        System.out.println("Total MST Weight: " + totalWeight);
-    }
 }
 
 public class Runner_Graph {
