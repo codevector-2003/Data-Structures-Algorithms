@@ -42,7 +42,4 @@ Welcome to my repository containing clean and well-organized implementations of 
 ├── DynamicProgramming/
 ├── README.md
 
-🎯 Goals
-- Reinforce Computer Science fundamentals
-- Prepare effectively for coding interviews
-- Help others learn DSA
+
